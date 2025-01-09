@@ -19,6 +19,9 @@ from IPython.display import display, Image as IPImage
 import asyncio
 
 import streamlit as st
+# sets the OpenAI model to use and initialize model
+model = "gpt-4o-mini"
+llm = ChatOpenAI(model=model,)
 
 class GraphState(TypedDict):
     news_query: Annotated[str, "Input query to extract news search parameters from."]
@@ -378,8 +381,5 @@ def main():
             else:
                 st.warning("Please enter a search query")
 
-if __name__ == "__main__": 
-    # sets the OpenAI model to use and initialize model
-    model = "gpt-4o-mini"
-    llm = ChatOpenAI(model=model,)
+if __name__ == "__main__":
     main()
